@@ -1,0 +1,65 @@
+{% extends 'shop/basic.html' %}
+
+{% block title%}Customize Project - Sbay {% endblock %}
+{% block body %}
+
+<div class="container my-3">
+<h3>Customize Project</h3>
+    
+
+ <form action="/shop/customization/" method="post">{% csrf_token %}
+  <div class="form-group row">
+    <label for="desc" class="col-sm-2 col-form-label">Description</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="desc" name="desc">
+    </div>
+  </div>
+  <div class="col-auto my-1">
+      <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Type of Customization</label>
+      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">Type of Customization
+        <option selected>Choose...</option>
+        <option value="1">Feature Addition</option>
+        <option value="2">Minor Changes</option>
+        <option value="3">Both</option>
+      </select>
+  </div>
+  <div class="form-group row">
+    <label for="price" class="col-sm-2 col-form-label">Price Range</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="price">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="time" class="col-sm-2 col-form-label">Completion Time</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="time">
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+ </form>
+</div>
+{% endblock %}
+
+{% block js %}
+  <script>
+  {% if thank %}
+    alert('Your request has been sent!');
+    document.location = "/shop/customization";
+  {% endif %}
+  </script>
+{% endblock %}
+{% block footer %}
+    <footer>
+                <div class="row pad">
+					<div class="col-lg-12 text-center">
+						Copyright &copy; 2020 <strong>Sbay</strong> Developed By Tooba Rahat
+					</div>
+				</div>					
+    </footer>
+ {% endblock %}
+
+
